@@ -1,0 +1,197 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 2,
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "name": "Black",
+                    "slug": "black",
+                    "color": "hsl(204, 28%, 8%)"
+                },
+                {
+                    "name": "White",
+                    "slug": "white",
+                    "color": "hsl(0, 0%, 100%)"
+                },
+                {
+                    "name": "Primary",
+                    "slug": "primary",
+                    "color": "hsl(265, 34%, 34%)"
+                },
+                {
+                    "name": "Accent",
+                    "slug": "accent",
+                    "color": "hsl(342, 89%, 48%)"
+                },
+                {
+                    "name": "Warning",
+                    "slug": "warning",
+                    "color": "hsl(46, 100%, 61%)"
+                },
+                {
+                    "name": "Success",
+                    "slug": "success",
+                    "color": "hsl(122, 50%, 60%)"
+                },
+                {
+                    "name": "Error",
+                    "slug": "error",
+                    "color": "hsl(342, 89%, 48%)"
+                },
+                {
+                    "name": "Background",
+                    "slug": "bg",
+                    "color": "hsl(1, 0%, 100%)"
+                },
+                {
+                    "name": "Contrast Lower",
+                    "slug": "contrast-lower",
+                    "color": "hsl(180, 1%, 84%)"
+                },
+                {
+                    "name": "Contrast Low",
+                    "slug": "contrast-low",
+                    "color": "hsl(210, 2%, 64%)"
+                },
+                {
+                    "name": "Contrast Medium",
+                    "slug": "contrast-medium",
+                    "color": "hsl(204, 2%, 46%)"
+                },
+                {
+                    "name": "Contrast High",
+                    "slug": "contrast-high",
+                    "color": "hsl(210, 7%, 21%)"
+                },
+                {
+                    "name": "Contrast Higher",
+                    "slug": "contrast-higher",
+                    "color": "hsl(204, 28%, 7%)"
+                }
+            ]
+        },
+        "typography": {
+            "fontFamilies": [
+                {
+                    "fontFamily": "\"Open Sans\", sans-serif",
+                    "name": "Open Sans",
+                    "slug": "body",
+                    "fontFace": [
+                        {
+                            "fontFamily": "Open Sans",
+                            "fontWeight": "400 700",
+                            "fontStyle": "normal",
+                            "src": [
+                                "file:./assets/fonts/open-sans/opensans-variable.ttf"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "fontFamily": "\"Montserrat\", sans-serif",
+                    "name": "Montserrat",
+                    "slug": "heading",
+                    "fontFace": [
+                        {
+                            "fontFamily": "Montserrat",
+                            "fontWeight": "700",
+                            "fontStyle": "normal",
+                            "src": [
+                                "file:./assets/fonts/montserrat/montserrat-variable.ttf"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "fontFamily": "\"Source Code Pro\", monospace",
+                    "name": "Source Code Pro",
+                    "slug": "monospace",
+                    "fontFace": [
+                        {
+                            "fontFamily": "Source Code Pro",
+                            "fontWeight": "400 700",
+                            "fontStyle": "normal",
+                            "src": [
+                                "file:./assets/fonts/source-code-pro/sourcecodepro-variable.ttf"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "styles": {
+        "elements": {
+            "h1": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            },
+            "h2": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            },
+            "h3": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            },
+            "h4": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            },
+            "h5": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            },
+            "h6": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            }
+        },
+        "blocks": {
+            "core/heading": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            },
+            "core/site-title": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            },
+            "core/post-title": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            }
+        }
+    },
+    "templateParts": [
+        {
+            "name": "header",
+            "title": "Header",
+            "area": "header"
+        },
+        {
+            "name": "footer",
+            "title": "Footer",
+            "area": "footer"
+        },
+        {
+            "name": "loop",
+            "title": "Loop",
+            "area": "uncategorized"
+        },
+        {
+            "name": "author",
+            "title": "Author",
+            "area": "uncategorized"
+        }
+    ]
+}

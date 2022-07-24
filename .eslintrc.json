@@ -1,0 +1,23 @@
+{
+    "extends": [
+        "plugin:@wordpress/eslint-plugin/recommended",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jquery": true
+    },
+    "globals": {
+        "algolia": true,
+        "algoliasearch": true,
+        "instantsearch": true,
+        "_": true
+    },
+    "rules": {
+        "prettier/prettier": ["error"]
+    }
+}

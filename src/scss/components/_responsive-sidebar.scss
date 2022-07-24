@@ -1,0 +1,613 @@
+/* --------------------------------
+
+File#: _1_responsive-sidebar
+Title: Responsive Sidebar
+Descr: Responsive sidebar container
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+/* variables */
+:root {
+
+	/* colors */
+	--rz4-color-primary-hsl: 250, 84%, 54%;
+	--rz4-color-bg-hsl: 0, 0%, 100%;
+	--rz4-color-contrast-high-hsl: 230, 7%, 23%;
+	--rz4-color-contrast-higher-hsl: 230, 13%, 9%;
+	--rz4-color-bg-light-hsl: 0, 0%, 100%;
+	--rz4-color-bg-lighter-hsl: 0, 0%, 100%;
+	--rz4-color-black-hsl: 231, 15%, 9%;
+	--rz4-color-bg-dark-hsl: 240, 4%, 95%;
+	--rz4-color-white-hsl: 0, 0%, 100%;
+	--rz4-color-primary-darker-hsl: 250, 84%, 38%;
+	--rz4-color-primary-light-hsl: 250, 84%, 60%;
+	--rz4-color-accent-hsl: 342, 89%, 48%;
+	--rz4-color-contrast-lower-hsl: 240, 4%, 85%;
+
+	/* spacing */
+	--rz4-space-sm: 0.75rem;
+	--rz4-space-md: 1.25rem;
+	--rz4-space-lg: 2rem;
+	--rz4-space-xl: 3.25rem;
+	--rz4-space-2xs: 0.375rem;
+	--rz4-space-xs: 0.5rem;
+
+	/* typography */
+	--rz4-text-md: 1.2rem;
+	--rz4-text-sm: 0.833rem;
+}
+
+@media (min-width: 64rem) {
+
+	:root {
+
+		/* spacing */
+		--rz4-space-sm: 1.125rem;
+		--rz4-space-md: 2rem;
+		--rz4-space-lg: 3.125rem;
+		--rz4-space-xl: 5.125rem;
+		--rz4-space-2xs: 0.5625rem;
+		--rz4-space-xs: 0.75rem;
+
+		/* typography */
+		--rz4-text-md: 1.5625rem;
+		--rz4-text-sm: 1rem;
+	}
+}
+
+/* buttons */
+.rz4-btn {
+	position: relative;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1em;
+	white-space: nowrap;
+	background: hsl(var(--rz4-color-bg-dark-hsl));
+	color: hsl(var(--rz4-color-contrast-higher-hsl));
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 1.2;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition: all 0.2s ease;
+	will-change: transform;
+	padding: var(--rz4-space-2xs) var(--rz4-space-sm);
+	border-radius: 0.25em;
+}
+
+.rz4-btn:focus-visible {
+	box-shadow:
+		0 0 0 2px hsl(var(--rz4-color-bg-hsl)),
+		0 0 0 4px hsla(var(--rz4-color-contrast-higher-hsl), 0.15);
+	outline: none;
+}
+
+.rz4-btn:active {
+	transform: translateY(2px);
+}
+
+.rz4-btn--primary {
+	background: hsl(var(--rz4-color-primary-hsl));
+	color: hsl(var(--rz4-color-white-hsl));
+	box-shadow:
+		inset 0 1px 0 hsla(var(--rz4-color-white-hsl), 0.15),
+		0 1px 3px hsla(var(--rz4-color-primary-darker-hsl), 0.25),
+		0 2px 6px hsla(var(--rz4-color-primary-darker-hsl), 0.1),
+		0 6px 10px -2px hsla(var(--rz4-color-primary-darker-hsl), 0.25);
+}
+
+.rz4-btn--primary:hover {
+	background: hsl(var(--rz4-color-primary-light-hsl));
+	box-shadow:
+		inset 0 1px 0 hsla(var(--rz4-color-white-hsl), 0.15),
+		0 1px 2px hsla(var(--rz4-color-primary-darker-hsl), 0.25),
+		0 1px 4px hsla(var(--rz4-color-primary-darker-hsl), 0.1),
+		0 3px 6px -2px hsla(var(--rz4-color-primary-darker-hsl), 0.25);
+}
+
+.rz4-btn--primary:focus {
+	box-shadow:
+		inset 0 1px 0 hsla(var(--rz4-color-white-hsl), 0.15),
+		0 1px 2px hsla(var(--rz4-color-primary-darker-hsl), 0.25),
+		0 1px 4px hsla(var(--rz4-color-primary-darker-hsl), 0.1),
+		0 3px 6px -2px hsla(var(--rz4-color-primary-darker-hsl), 0.25),
+		0 0 0 2px hsl(var(--rz4-color-bg-hsl)),
+		0 0 0 4px hsl(var(--rz4-color-primary-hsl));
+}
+
+/* icons */
+.rz4-icon {
+	height: var(--rz4-size, 1em);
+	width: var(--rz4-size, 1em);
+	display: inline-block;
+	color: inherit;
+	fill: currentcolor;
+	line-height: 1;
+	flex-shrink: 0;
+	max-width: initial;
+}
+
+.rz4-icon--xs {
+	--rz4-size: 16px;
+}
+
+/* component */
+
+/* mobile version only (--default) 👇 */
+.sidebar:not(.sidebar--static) {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	transition: visibility 0s 0.3s;
+}
+
+.sidebar:not(.sidebar--static)::after {
+
+	/* overlay layer */
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(var(--rz4-color-black-hsl), 0);
+	transition: background-color 0.3s;
+	z-index: 1;
+}
+
+.sidebar:not(.sidebar--static) .sidebar__panel {
+
+	/* content */
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	max-width: 380px;
+	height: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	// background-color: hsl(var(--rz4-color-bg-hsl));
+	background-color: var(--wp--preset--color--bg);
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+	transition: box-shadow 0.3s, -webkit-transform 0.3s;
+	transition: box-shadow 0.3s, transform 0.3s;
+	transition: box-shadow 0.3s, transform 0.3s, -webkit-transform 0.3s;
+}
+
+.sidebar:not(.sidebar--static).sidebar--right-on-mobile .sidebar__panel {
+	left: auto;
+	right: 0;
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+.sidebar:not(.sidebar--static).sidebar--is-visible {
+	visibility: visible;
+	transition: none;
+}
+
+.sidebar:not(.sidebar--static).sidebar--is-visible::after {
+	background-color: hsla(var(--rz4-color-black-hsl), 0.85);
+}
+
+.sidebar:not(.sidebar--static).sidebar--is-visible .sidebar__panel {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	box-shadow:
+		0 0.9px 1.5px rgba(0, 0, 0, 0.03),
+		0 3.1px 5.5px rgba(0, 0, 0, 0.08),
+		0 14px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* end mobile version */
+.sidebar__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+.sidebar__close-btn {
+	--rz4-size: 32px;
+	color: var(--wp--preset--color--contrast-high);
+	width: var(--rz4-size);
+	height: var(--rz4-size);
+	display: flex;
+	border-radius: 50%;
+	background-color: var(--wp--preset--color--bg);
+	transition: 0.2s;
+	flex-shrink: 0;
+	cursor: pointer;
+	border: 0;
+}
+
+.sidebar__close-btn svg {
+	display: block;
+	margin: auto;
+}
+
+.sidebar__close-btn:hover {
+	background-color: var(--wp--preset--color--contrast-high);
+	color: var(--wp--preset--color--bg);
+}
+
+/* desktop version only (--static) 👇 */
+.sidebar--static {
+	flex-shrink: 0;
+	flex-grow: 1;
+}
+
+.sidebar--static .sidebar__header {
+	display: none;
+}
+
+.sidebar--sticky-on-desktop {
+	position: -webkit-sticky;
+	position: sticky;
+	top: var(--rz4-space-sm);
+	max-height: calc(100vh - var(--rz4-space-sm));
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* end desktop version */
+.sidebar,
+.sidebar-loaded\:show {
+	opacity: 0;
+
+	// hide sidebar - or other elements using the
+	// .sidebar-loaded:show class
+	// while it is initialized in JS
+}
+
+.sidebar--loaded {
+	opacity: 1;
+}
+
+// detect when the sidebar needs to switch
+// from the mobile layout to a static one - used in JS
+[class*="sidebar--static"]::before {
+	display: none;
+}
+
+.sidebar--static::before {
+	content: "static";
+}
+
+.sidebar--static\@xs::before {
+	content: "mobile";
+}
+
+@media (min-width: 32rem) {
+
+	.sidebar--static\@xs::before {
+		content: "static";
+	}
+}
+
+.sidebar--static\@sm::before {
+	content: "mobile";
+}
+
+@media (min-width: 48rem) {
+
+	.sidebar--static\@sm::before {
+		content: "static";
+	}
+}
+
+.sidebar--static\@md::before {
+	content: "mobile";
+}
+
+@media (min-width: 64rem) {
+
+	.sidebar--static\@md::before {
+		content: "static";
+	}
+}
+
+.sidebar--static\@lg::before {
+	content: "mobile";
+}
+
+@media (min-width: 80rem) {
+
+	.sidebar--static\@lg::before {
+		content: "static";
+	}
+}
+
+.sidebar--static\@xl::before {
+	content: "mobile";
+}
+
+@media (min-width: 90rem) {
+
+	.sidebar--static\@xl::before {
+		content: "static";
+	}
+}
+
+/* utility classes */
+.rz4-padding-md {
+	padding: var(--rz4-space-md);
+}
+
+.rz4-text-component :where(h1, h2, h3, h4) {
+	line-height: var(--rz4-heading-line-height, 1.2);
+	margin-top: calc(var(--rz4-space-md) * var(--rz4-space-multiplier, 1));
+	margin-bottom: calc(var(--rz4-space-sm) * var(--rz4-space-multiplier, 1));
+}
+
+.rz4-text-component :where(p, blockquote, ul li, ol li) {
+	line-height: var(--rz4-body-line-height, 1.4);
+}
+
+.rz4-text-component :where(ul, ol, p, blockquote, .rz4-text-component__block) {
+	margin-bottom: calc(var(--rz4-space-sm) * var(--rz4-space-multiplier, 1));
+}
+
+.rz4-text-component :where(ul, ol) {
+	padding-left: 1.25em;
+}
+
+.rz4-text-component ul :where(ul, ol),
+.rz4-text-component ol :where(ul, ol) {
+	padding-left: 1em;
+	margin-bottom: 0;
+}
+
+.rz4-text-component ul {
+	list-style-type: disc;
+}
+
+// .rz4-text-component ol {
+//   list-style-type: decimal;
+// }
+
+.rz4-text-component img {
+	display: block;
+	margin: 0 auto;
+}
+
+.rz4-text-component figcaption {
+	margin-top: calc(var(--rz4-space-xs) * var(--rz4-space-multiplier, 1));
+	font-size: var(--rz4-text-sm);
+	text-align: center;
+}
+
+.rz4-text-component em {
+	font-style: italic;
+}
+
+.rz4-text-component strong {
+	font-weight: 700;
+}
+
+.rz4-text-component s {
+	text-decoration: line-through;
+}
+
+.rz4-text-component u {
+	text-decoration: underline;
+}
+
+.rz4-text-component mark {
+	background-color: hsla(var(--rz4-color-accent-hsl), 0.2);
+	color: inherit;
+}
+
+.rz4-text-component blockquote {
+	padding-left: 1em;
+	border-left: 4px solid hsl(var(--rz4-color-contrast-lower-hsl));
+	font-style: italic;
+}
+
+.rz4-text-component hr {
+	margin: calc(var(--rz4-space-md) * var(--rz4-space-multiplier, 1)) auto;
+	background: hsl(var(--rz4-color-contrast-lower-hsl));
+	height: 1px;
+}
+
+.rz4-text-component > *:first-child {
+	margin-top: 0;
+}
+
+.rz4-text-component > *:last-child {
+	margin-bottom: 0;
+}
+
+.rz4-text-component.rz4-line-height-xs {
+	--rz4-heading-line-height: 1;
+	--rz4-body-line-height: 1.1;
+}
+
+.rz4-text-component.rz4-line-height-sm {
+	--rz4-heading-line-height: 1.1;
+	--rz4-body-line-height: 1.2;
+}
+
+.rz4-text-component.rz4-line-height-md {
+	--rz4-heading-line-height: 1.15;
+	--rz4-body-line-height: 1.4;
+}
+
+.rz4-text-component.rz4-line-height-lg {
+	--rz4-heading-line-height: 1.22;
+	--rz4-body-line-height: 1.58;
+}
+
+.rz4-text-component.rz4-line-height-xl {
+	--rz4-heading-line-height: 1.3;
+	--rz4-body-line-height: 1.72;
+}
+
+.rz4-height-100vh {
+	height: 100vh;
+}
+
+.rz4-flex-grow {
+	flex-grow: 1;
+}
+
+.rz4-z-index-1 {
+	z-index: 1;
+}
+
+.rz4-position-relative {
+	position: relative;
+}
+
+.rz4-text-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.rz4-text-md {
+	font-size: var(--rz4-text-md);
+}
+
+.rz4-z-index-2 {
+	z-index: 2;
+}
+
+.rz4-border-bottom {
+	--rz4-border-o: 1;
+	border-bottom: 1px solid var(--wp--preset--color--contrast-low);
+}
+
+.rz4-padding-x-md {
+	padding-left: var(--rz4-space-md);
+	padding-right: var(--rz4-space-md);
+}
+
+.rz4-padding-y-sm {
+	padding-top: var(--rz4-space-sm);
+	padding-bottom: var(--rz4-space-sm);
+}
+
+.rz4-bg {
+	--rz4-bg-o: 1;
+	// background-color: hsla(var(--rz4-color-bg-hsl), var(--rz4-bg-o, 1));
+	background-color: var(--wp--preset--color--bg);
+}
+
+.rz4-border-right {
+	--rz4-border-o: 1;
+	border-right:
+		var(--rz4-border-width, 1px) var(--rz4-border-style, solid)
+		hsla(var(--rz4-color-contrast-lower-hsl), var(--rz4-border-o, 1));
+}
+
+.rz4-max-width-4xs {
+	max-width: 20rem;
+}
+
+.rz4-width-100\% {
+	width: 100%;
+}
+
+.rz4-padding-y-md {
+	padding-top: var(--rz4-space-md);
+	padding-bottom: var(--rz4-space-md);
+}
+
+.rz4-bg-contrast-higher {
+	--rz4-bg-o: 1;
+	background-color: hsla(var(--rz4-color-contrast-higher-hsl), var(--rz4-bg-o, 1));
+}
+
+.rz4-grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+
+.rz4-grid > * {
+	min-width: 0;
+	grid-column-end: span 12;
+}
+
+.rz4-margin-bottom-lg {
+	margin-bottom: var(--rz4-space-lg);
+}
+
+.rz4-text-center {
+	text-align: center;
+}
+
+.rz4-max-width-lg {
+	max-width: 80rem;
+}
+
+.rz4-container {
+	width: calc(100% - 2 * var(--rz4-space-md));
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.rz4-padding-y-xl {
+	padding-top: var(--rz4-space-xl);
+	padding-bottom: var(--rz4-space-xl);
+}
+
+.rz4-border-left {
+	--rz4-border-o: 1;
+	border-left:
+		var(--rz4-border-width, 1px) var(--rz4-border-style, solid)
+		hsla(var(--rz4-color-contrast-lower-hsl), var(--rz4-border-o, 1));
+}
+
+.rz4-bg-opacity-10\% {
+	--rz4-bg-o: 0.1;
+}
+
+.rz4-hide {
+	display: none !important;
+}
+
+@media (min-width: 64rem) {
+
+	.rz4-flex\@md {
+		display: flex;
+	}
+
+	.rz4-hide\@md {
+		display: none !important;
+	}
+
+	.rz4-padding-0\@md {
+		padding: 0;
+	}
+
+	.rz4-items-start\@md {
+		align-items: flex-start;
+	}
+
+	.rz4-gap-md\@md {
+		gap: var(--rz4-space-md);
+	}
+
+	.rz4-flex-row-reverse\@md {
+		flex-direction: row-reverse;
+	}
+
+	.rz4-col-3\@md {
+		grid-column-end: span 3;
+	}
+
+	.rz4-col-9\@md {
+		grid-column-end: span 9;
+	}
+}

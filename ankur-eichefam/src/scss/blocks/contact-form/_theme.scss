@@ -1,0 +1,37 @@
+@use "./base" as *;
+
+.contact-form .wp-block-jetpack-contact-form {
+	gap: var(--wp--preset--spacing--component-padding);
+
+	.grunion-field-wrap {
+		border: 0;
+	}
+
+	$widths: 25, 50, 75;
+
+	@each $width in $widths {
+		.grunion-field-width-#{$width}-wrap {
+
+			@media (min-width: 600px) {
+				flex-basis: calc(#{$width}% - (var(--wp--preset--spacing--component-padding) / 2));
+			}
+		}
+	}
+
+	input[type="email"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="url"],
+	textarea {
+		margin-bottom: 0;
+		border-radius: var(--wp--custom--radius-md);
+		border: 1px solid var(--wp--preset--color--contrast-medium);
+	}
+}
+
+@media (max-width: 600px) {
+
+	.wp-block-jetpack-contact-form .grunion-field-wrap[class*="grunion-field-width-"] {
+		flex: 0 0 100%;
+	}
+}
