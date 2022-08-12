@@ -179,6 +179,11 @@
             "area": "header"
         },
         {
+            "name": "header-front-page",
+            "title": "Header (Front Page)",
+            "area": "header"
+        },
+        {
             "name": "footer",
             "title": "Footer",
             "area": "footer"
