@@ -53,6 +53,10 @@ button.wp-block-button__link:not(.is-style-outline) {
     flex: 0 0 100%;
   }
 }
+.wp-block-search__inside-wrapper {
+  position: relative;
+}
+
 /* --------------------------------
 
 File#: _1_popover
@@ -1388,4 +1392,41 @@ Usage: codyhouse.co/license
 
 .margin-0 {
   margin: 0;
+}
+
+.algolia-autocomplete {
+  width: 100% !important;
+  top: calc(100% - 5px) !important;
+  left: 0 !important;
+  box-shadow: var(--wp--custom--shadow-md);
+  border-bottom-left-radius: var(--wp--custom--radius-md);
+  border-bottom-right-radius: var(--wp--custom--radius-md);
+  padding-top: var(--wp--preset--spacing--sm);
+  background-color: var(--wp--preset--color--white);
+  color: var(--wp--preset--color--black);
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  box-shadow: none;
+  font-size: var(--wp--preset--font-size--xs);
+  font-family: var(--wp--preset--font-family--body);
+  box-shadow: none;
+}
+.algolia-autocomplete .aa-dropdown-menu:before {
+  content: "";
+  margin-top: calc(-1 * var(--wp--preset--spacing--sm) / 2);
+  background: hsl(210deg, 2%, 64%);
+  height: 1px;
+  position: absolute;
+  left: var(--wp--preset--spacing--xxs);
+  right: var(--wp--preset--spacing--xxs);
+}
+.algolia-autocomplete .aa-dropdown-menu a {
+  font-size: inherit;
+}
+.algolia-autocomplete .aa-dropdown-menu a.suggestion-link {
+  padding: 0 var(--wp--preset--spacing--xxs);
+}
+.algolia-autocomplete .autocomplete-empty {
+  padding: 5px 15px;
+  color: hsl(204deg, 2%, 46%);
 }

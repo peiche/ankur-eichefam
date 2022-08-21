@@ -93,12 +93,6 @@ module.exports = [
 	},
 	{
 		entry: {
-			// util: path.resolve(
-			// 	process.cwd(),
-			// 	'src',
-			// 	'js',
-			// 	'util.js',
-			// ),
 			theme: path.resolve(
 				process.cwd(),
 				'src',
@@ -110,6 +104,12 @@ module.exports = [
 				'src',
 				'js',
 				'instantsearch.js',
+			),
+			autocomplete: path.resolve(
+				process.cwd(),
+				'src',
+				'js',
+				'autocomplete.js',
 			),
 		},
 		output: {

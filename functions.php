@@ -27,6 +27,15 @@ add_action( 'wp_enqueue_scripts', function() {
 		true
 	);
 
+	// Enqueue Algolia autocomplete script.
+	wp_enqueue_script(
+		'ankur-eichefam-autocomplete',
+		get_stylesheet_directory_uri() . '/assets/js/autocomplete.js',
+		array(),
+		filemtime( get_stylesheet_directory() . '/assets/js/autocomplete.js' ),
+		true
+	);
+
 } );
 
 /**
