@@ -53,11 +53,6 @@ add_action( 'enqueue_block_editor_assets', function() {
 	);
 } );
 
-// Remove all archive prefixes, like "Category:" and "Tag:".
-add_filter( 'get_the_archive_title_prefix', function() {
-	return false;
-} );
-
 // Algolia custom template path, including trailing slash.
 // @link https://community.algolia.com/wordpress/customize-templates.html#customize-templates-folder-name
 add_filter( 'algolia_templates_path', function() {

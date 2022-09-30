@@ -23,6 +23,11 @@ button.wp-block-button__link:not(.is-style-outline) {
 .contact-form .wp-block-jetpack-contact-form .grunion-field-wrap {
   border: 0;
 }
+.contact-form .wp-block-jetpack-contact-form .grunion-field-wrap label {
+  margin-bottom: var(--wp--preset--spacing--xxs);
+  font-size: var(--wp--preset--font-size--sm);
+  font-weight: 400;
+}
 @media (min-width: 600px) {
   .contact-form .wp-block-jetpack-contact-form .grunion-field-width-25-wrap {
     flex-basis: calc(25% - (var(--wp--preset--spacing--component-padding) / 2));
@@ -44,8 +49,13 @@ button.wp-block-button__link:not(.is-style-outline) {
 .contact-form .wp-block-jetpack-contact-form input[type=url],
 .contact-form .wp-block-jetpack-contact-form textarea {
   margin-bottom: 0;
+  border: 0;
+  background-color: var(--wp--preset--color--bg);
+  color: inherit;
+  line-height: calc(var(--wp--custom--line-height-body) * var(--wp--custom--line-height-multiplier, 1));
+  padding: var(--wp--preset--spacing--xxs) var(--wp--preset--spacing--xs);
   border-radius: var(--wp--custom--radius-md);
-  border: 1px solid var(--wp--preset--color--contrast-medium);
+  box-shadow: inset 0px 0px 0px 1px var(--wp--preset--color--contrast-lower);
 }
 
 @media (max-width: 600px) {
@@ -53,6 +63,10 @@ button.wp-block-button__link:not(.is-style-outline) {
     flex: 0 0 100%;
   }
 }
+[data-carousel-extra]:not(.jp-carousel-wrap) img:hover {
+  opacity: 0.9;
+}
+
 .wp-block-search__inside-wrapper {
   position: relative;
 }
@@ -878,6 +892,10 @@ Usage: codyhouse.co/license
   }
   .rz4-col-9\@md {
     grid-column-end: span 9;
+  }
+  .rz4-padding-x-0\@md {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 /* -------------------------------- 

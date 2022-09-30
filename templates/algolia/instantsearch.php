@@ -52,7 +52,6 @@ wp_head();
 .wp-block-post-featured-image {
 	margin-left: 0;
 	margin-right: 0;
-	border-radius: var(--wp--custom--radius-md);
 }
 
 .wp-block-post-featured-image img {
@@ -60,11 +59,16 @@ wp_head();
 	max-width: 100%;
 	vertical-align: bottom;
 	width: 100%;
+	border-radius: var(--wp--custom--radius-md);
 }
 
 .wp-block-post-title a {
 	color: var(--wp--preset--color--contrast-higher);
 	text-decoration: none;
+}
+
+.wp-block-post-title a:where(:not(.wp-element-button)):hover {
+	text-decoration: underline;
 }
 
 .wp-block-post-date {
@@ -79,7 +83,7 @@ wp_head();
 		<button class="rz4-btn rz4-btn--primary" aria-controls="sidebar">Show sidebar</button>
 	</div> -->
 
-	<div id="ais-wrapper" class="rz4-flex@md">
+	<div id="ais-wrapper" class="rz4-flex@md has-global-padding">
 		<aside class="sidebar sidebar--static@md js-sidebar" data-static-class="rz4-position-relative rz4-z-index-1 rz4-width-100% rz4-max-width-4xs" id="sidebar" aria-labelledby="sidebar-title">
 			<div class="sidebar__panel">
 				<!-- 👇 header visible only on mobile -->
@@ -91,7 +95,7 @@ wp_head();
 					</button>
 				</header>
 				
-				<div class="rz4-position-relative rz4-z-index-1">
+				<div class="rz4-position-relative rz4-z-index-1 rz4-padding-x-md rz4-padding-x-0@md">
 					<!-- start sidebar content -->
 					<div class="rz4-text-component">
 						<!-- <p>Sidebar content.</p> -->

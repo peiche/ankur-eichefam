@@ -289,8 +289,11 @@
       }
 
       var popoverOption = popover.querySelector(".ld-switch-popover__option[data-value=\"".concat(options[themeSelection], "\"]"));
-      popoverOption.setAttribute('aria-selected', true);
-      popoverOption.setAttribute('tabindex', '0');
+
+      if (popoverOption) {
+        popoverOption.setAttribute('aria-selected', true);
+        popoverOption.setAttribute('tabindex', '0');
+      }
     } // set initial state
 
 
@@ -306,12 +309,12 @@
   function setStartIcon(switchOb) {
     var selectedOptionIndex = switchOb.element.querySelector('select').selectedIndex;
     if (selectedOptionIndex === 0) return;
-    setTheme(switchOb, selectedOptionIndex, true);
+    setTheme(switchOb, selectedOptionIndex);
   }
 
   ;
 
-  function setTheme(switchOb, value, init) {
+  function setTheme(switchOb, value) {
     var theme = switchOb.themes[0],
         iconIndex = value; // update local storage
 
@@ -332,7 +335,7 @@
 
     updateThemeValue(theme); // update visible icon
 
-    updateIcon(switchOb, iconIndex, switchOb.selectedIcon, init); // check if we need to add/remove matchMedia events
+    updateIcon(switchOb, iconIndex, switchOb.selectedIcon); // check if we need to add/remove matchMedia events
 
     setMatchMediaEvents(switchOb, value == 2, switchOb.isSystem);
     switchOb.isSystem = value == 2 ? true : false;
@@ -340,23 +343,23 @@
 
   ;
 
-  function updateIcon(switchOb, newIcon, oldIcon, init) {
-    if (init) {
-      // we are only setting the initial status of the switcher
+  function updateIcon(switchOb, newIcon, oldIcon) {
+    // if (init) { // we are only setting the initial status of the switcher
+    // 	Util.removeClass(switchOb.icons[oldIcon], switchOb.iconClassIn);
+    // 	Util.addClass(switchOb.icons[newIcon], switchOb.iconClassIn);
+    // 	switchOb.selectedIcon = newIcon;
+    // 	return;
+    // }
+    if (switchOb.icons[newIcon]) {
       Util.removeClass(switchOb.icons[oldIcon], switchOb.iconClassIn);
+      Util.addClass(switchOb.icons[oldIcon], switchOb.iconClassOut);
       Util.addClass(switchOb.icons[newIcon], switchOb.iconClassIn);
-      switchOb.selectedIcon = newIcon;
-      return;
+      switchOb.icons[newIcon].addEventListener('transitionend', function cb() {
+        Util.removeClass(switchOb.icons[oldIcon], switchOb.iconClassOut);
+        switchOb.icons[newIcon].removeEventListener('transitionend', cb);
+        switchOb.selectedIcon = newIcon;
+      });
     }
-
-    Util.removeClass(switchOb.icons[oldIcon], switchOb.iconClassIn);
-    Util.addClass(switchOb.icons[oldIcon], switchOb.iconClassOut);
-    Util.addClass(switchOb.icons[newIcon], switchOb.iconClassIn);
-    switchOb.icons[newIcon].addEventListener('transitionend', function cb() {
-      Util.removeClass(switchOb.icons[oldIcon], switchOb.iconClassOut);
-      switchOb.icons[newIcon].removeEventListener('transitionend', cb);
-      switchOb.selectedIcon = newIcon;
-    });
   }
 
   ;
