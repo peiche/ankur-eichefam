@@ -102,10 +102,6 @@ jQuery(function () {
       attribute: 'post_author.display_name',
       sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
       limit: 10
-    }),
-    /* Search powered-by widget */
-    instantsearch.widgets.poweredBy({
-      container: '#algolia-powered-by'
     })]);
     /* Start */
 
