@@ -66,21 +66,15 @@
 
 	.ais-facets__filter {
 		position: absolute;
-		// top: 14px;
 		right: 0;
 		border: 0;
 		background: none;
-		// display: none;
 		cursor: pointer;
 		color: var(--wp--preset--color--contrast-high);
 		font-size: var(--wp--preset--font-size--lg);
 		top: 0;
 		bottom: 0;
 		margin: auto;
-
-		// @media (max-width: 1000px) {
-		// 	display: block;
-		// }
 	}
 
 	.ais-facets__header {
@@ -124,12 +118,27 @@
 		}
 	}
 
-	.algolia-search-box-wrapper .search-icon {
+	.ais-Stats-text {
+		color: var(--wp--preset--color--contrast-medium);
+	}
+
+	.algolia-search-box-wrapper .search-icon,
+	.algolia-icon {
 		--size: var(--wp--preset--font-size--xl);
 		fill: var(--wp--preset--color--contrast-high);
 		top: 0;
 		bottom: 0;
 		margin: auto;
+	}
+
+	.algolia-icon {
+		--size: var(--wp--preset--font-size--base);
+		position: absolute;
+		right: 2.5rem;
+
+		@media (min-width: 64rem) {
+			right: 0;
+		}
 	}
 
 	.ais-Hits-list {
@@ -220,7 +229,9 @@
 	}
 
 	.ais-Menu-label,
-	.ais-HierarchicalMenu-label {
+	.ais-HierarchicalMenu-label,
+	.ais-RefinementList-labelText,
+	.ais-RefinementList-label {
 		margin-right: 5px;
 	}
 
@@ -278,6 +289,10 @@
 		text-decoration: none;
 		border-radius: var(--wp--custom--radius-lg);
 		padding: var(--wp--preset--spacing--xxxs) var(--wp--preset--spacing--xs);
+
+		&:hover {
+			opacity: 0.9;
+		}
 	}
 
 	.ais-Pagination-item--selected {
