@@ -1,6 +1,6 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-jQuery(function () {
+window.addEventListener('load', function () {
   /* Initialize Algolia client */
   var client = algoliasearch(algolia.application_id, algolia.search_api_key);
   /**
@@ -25,7 +25,7 @@ jQuery(function () {
 
 
   var sources = [];
-  jQuery.each(algolia.autocomplete.sources, function (i, config) {
+  algolia.autocomplete.sources.forEach(function (config, i) {
     var suggestion_template = wp.template(config['tmpl_suggestion']);
     sources.push({
       source: algoliaHitsSource(client.initIndex(config['index_name']), {
@@ -70,14 +70,12 @@ jQuery(function () {
   });
   /* Setup dropdown menus */
 
-  jQuery(algolia.autocomplete.input_selector).each(function (i) {
-    var $searchInput = jQuery(this);
+  document.querySelectorAll(algolia.autocomplete.input_selector).forEach(function (element) {
     var config = {
-      // debug: true,
       debug: algolia.debug,
       hint: false,
       openOnFocus: true,
-      appendTo: 'header .wp-block-search__inside-wrapper',
+      appendTo: '.site-header .wp-block-search__inside-wrapper',
       templates: {
         empty: wp.template('autocomplete-empty')
       }
@@ -89,23 +87,27 @@ jQuery(function () {
     /* Instantiate autocomplete.js */
 
 
-    var autocomplete = algoliaAutocomplete($searchInput[0], config, sources).on('autocomplete:selected', function (e, suggestion) {
+    var autocomplete = algoliaAutocomplete(element, config, sources).on('autocomplete:selected', function (e, suggestion) {
       /* Redirect the user when we detect a suggestion selection. */
       window.location.href = suggestion.permalink;
     });
     /* Force the dropdown to be re-drawn on scroll to handle fixed containers. */
 
-    jQuery(window).on('scroll', function () {
+    window.addEventListener('scroll', function () {
       if (autocomplete.autocomplete.getWrapper().style.display === "block") {
         autocomplete.autocomplete.close();
         autocomplete.autocomplete.open();
       }
     });
   });
-  jQuery(document).on("click", ".algolia-powered-by-link", function (e) {
-    e.preventDefault();
-    window.location = "https://www.algolia.com/?utm_source=WordPress&utm_medium=extension&utm_content=" + window.location.hostname + "&utm_campaign=poweredby";
-  });
+  var algoliaPoweredLink = document.querySelector('.algolia-powered-by-link');
+
+  if (algoliaPoweredLink) {
+    algoliaPoweredLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location = "https://www.algolia.com/?utm_source=WordPress&utm_medium=extension&utm_content=" + window.location.hostname + "&utm_campaign=poweredby";
+    });
+  }
 });
 /******/ })()
 ;

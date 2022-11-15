@@ -1,8 +1,13 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-jQuery(function () {
-  if (jQuery('#algolia-search-box').length > 0) {
+window.addEventListener('load', function () {
+  if (document.getElementById("algolia-search-box")) {
+    if (algolia.indices.searchable_posts === undefined && document.getElementsByClassName("admin-bar").length > 0) {
+      alert('It looks like you haven\'t indexed the searchable posts index. Please head to the Indexing page of the Algolia Search plugin and index it.');
+    }
     /* Instantiate instantsearch.js */
+
+
     var search = instantsearch({
       indexName: algolia.indices.searchable_posts.name,
       searchClient: algoliasearch(algolia.application_id, algolia.search_api_key),
@@ -32,7 +37,7 @@ jQuery(function () {
     /* Search box widget */
     instantsearch.widgets.searchBox({
       container: '#algolia-search-box',
-      placeholder: 'Search...',
+      placeholder: 'Search for...',
       showReset: false,
       showSubmit: false,
       showLoadingIndicator: false
@@ -51,21 +56,21 @@ jQuery(function () {
       },
       transformData: {
         item: function item(hit) {
-          function replaceHighlightsRecursive(item) {
+          function replace_highlights_recursive(item) {
             if (item instanceof Object && item.hasOwnProperty('value')) {
               item.value = _.escape(item.value);
               item.value = item.value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
             } else {
               for (var key in item) {
-                item[key] = replaceHighlightsRecursive(item[key]);
+                item[key] = replace_highlights_recursive(item[key]);
               }
             }
 
             return item;
           }
 
-          hit._highlightResult = replaceHighlightsRecursive(hit._highlightResult);
-          hit._snippetResult = replaceHighlightsRecursive(hit._snippetResult);
+          hit._highlightResult = replace_highlights_recursive(hit._highlightResult);
+          hit._snippetResult = replace_highlights_recursive(hit._snippetResult);
           return hit;
         }
       }
@@ -105,8 +110,9 @@ jQuery(function () {
     })]);
     /* Start */
 
-    search.start();
-    jQuery('#algolia-search-box input').attr('type', 'search').trigger('select');
+    search.start(); // This needs work
+
+    document.querySelector("#algolia-search-box input[type='search']").select();
   }
 });
 /******/ })()
