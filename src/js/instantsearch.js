@@ -1,43 +1,40 @@
-jQuery(function () {
-	if (jQuery('#algolia-search-box').length > 0) {
+window.addEventListener('load', function() {
+	if ( document.getElementById("algolia-search-box") ) {
+		if ( algolia.indices.searchable_posts === undefined && document.getElementsByClassName("admin-bar").length > 0) {
+			alert('It looks like you haven\'t indexed the searchable posts index. Please head to the Indexing page of the Algolia Search plugin and index it.');
+		}
 
 		/* Instantiate instantsearch.js */
-		const search = instantsearch({
+		var search = instantsearch({
 			indexName: algolia.indices.searchable_posts.name,
-			searchClient: algoliasearch(
-				algolia.application_id,
-				algolia.search_api_key
-			),
+			searchClient: algoliasearch( algolia.application_id, algolia.search_api_key ),
 			routing: {
 				router: instantsearch.routers.history({ writeDelay: 1000 }),
 				stateMapping: {
-					stateToRoute(indexUiState) {
+					stateToRoute( indexUiState ) {
 						return {
-							s: indexUiState[
-								algolia.indices.searchable_posts.name
-							].query,
-							page: indexUiState[
-								algolia.indices.searchable_posts.name
-							].page,
-						};
+							s: indexUiState[ algolia.indices.searchable_posts.name ].query,
+							page: indexUiState[ algolia.indices.searchable_posts.name ].page
+						}
 					},
-					routeToState(routeState) {
+					routeToState( routeState ) {
 						const indexUiState = {};
-						indexUiState[algolia.indices.searchable_posts.name] = {
+						indexUiState[ algolia.indices.searchable_posts.name ] = {
 							query: routeState.s,
-							page: routeState.page,
+							page: routeState.page
 						};
 						return indexUiState;
-					},
-				},
-			},
+					}
+				}
+			}
 		});
 
 		search.addWidgets([
+
 			/* Search box widget */
 			instantsearch.widgets.searchBox({
 				container: '#algolia-search-box',
-				placeholder: 'Search...',
+				placeholder: 'Search for...',
 				showReset: false,
 				showSubmit: false,
 				showLoadingIndicator: false,
@@ -45,7 +42,7 @@ jQuery(function () {
 
 			/* Stats widget */
 			instantsearch.widgets.stats({
-				container: '#algolia-stats',
+				container: '#algolia-stats'
 			}),
 
 			/* Hits widget */
@@ -54,44 +51,34 @@ jQuery(function () {
 				hitsPerPage: 10,
 				templates: {
 					empty: 'No results were found for "<strong>{{query}}</strong>".',
-					item: wp.template('instantsearch-hit'),
+					item: wp.template('instantsearch-hit')
 				},
 				transformData: {
-					item(hit) {
-						function replaceHighlightsRecursive(item) {
-							if (
-								item instanceof Object &&
-								item.hasOwnProperty('value')
-							) {
+					item: function (hit) {
+
+						function replace_highlights_recursive (item) {
+							if (item instanceof Object && item.hasOwnProperty('value')) {
 								item.value = _.escape(item.value);
-								item.value = item.value
-									.replace(/__ais-highlight__/g, '<em>')
-									.replace(/__\/ais-highlight__/g, '</em>');
+								item.value = item.value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
 							} else {
-								for (const key in item) {
-									item[key] = replaceHighlightsRecursive(
-										item[key]
-									);
+								for (var key in item) {
+									item[key] = replace_highlights_recursive(item[key]);
 								}
 							}
 							return item;
 						}
 
-						hit._highlightResult = replaceHighlightsRecursive(
-							hit._highlightResult
-						);
-						hit._snippetResult = replaceHighlightsRecursive(
-							hit._snippetResult
-						);
+						hit._highlightResult = replace_highlights_recursive(hit._highlightResult);
+						hit._snippetResult = replace_highlights_recursive(hit._snippetResult);
 
 						return hit;
-					},
-				},
+					}
+				}
 			}),
 
 			/* Pagination widget */
 			instantsearch.widgets.pagination({
-				container: '#algolia-pagination',
+				container: '#algolia-pagination'
 			}),
 
 			/* Post types refinement widget */
@@ -107,11 +94,7 @@ jQuery(function () {
 				container: '#facet-categories',
 				separator: ' > ',
 				sortBy: ['count'],
-				attributes: [
-					'taxonomies_hierarchical.category.lvl0',
-					'taxonomies_hierarchical.category.lvl1',
-					'taxonomies_hierarchical.category.lvl2',
-				],
+				attributes: ['taxonomies_hierarchical.category.lvl0', 'taxonomies_hierarchical.category.lvl1', 'taxonomies_hierarchical.category.lvl2'],
 			}),
 
 			/* Tags refinement widget */
@@ -135,8 +118,7 @@ jQuery(function () {
 		/* Start */
 		search.start();
 
-		jQuery('#algolia-search-box input')
-			.attr('type', 'search')
-			.trigger('select');
+		// This needs work
+		document.querySelector("#algolia-search-box input[type='search']").select()
 	}
 });
