@@ -172,6 +172,15 @@
             }
         }
     },
+    "customTemplates": [
+        {
+            "name": "page-no-title-simple-header",
+            "title": "Page (no title, simple header)",
+            "postTypes": [
+                "page"
+            ]
+        }
+    ],
     "templateParts": [
         {
             "name": "header",
@@ -183,6 +192,11 @@
             "title": "Header (Front Page)",
             "area": "header"
         },
+        {
+            "name": "header-no-curve",
+            "title": "Header (no curve)",
+            "area": "header"
+        }
         {
             "name": "footer",
             "title": "Footer",
@@ -196,6 +210,11 @@
         {
             "name": "author",
             "title": "Author",
+            "area": "uncategorized"
+        },
+        {
+            "name": "search-modal",
+            "title": "Search Modal",
             "area": "uncategorized"
         }
     ]
