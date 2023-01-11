@@ -1,4 +1,5 @@
 // 1
+import "./theme/modal-window";
 import "./theme/popover";
 import "./theme/responsive-sidebar";
 
