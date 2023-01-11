@@ -75,10 +75,10 @@ window.addEventListener('load', function () {
 	document.querySelectorAll( algolia.autocomplete.input_selector ).forEach( function( element ) {
 
 		var config = {
-			debug: algolia.debug,
+			debug: true,
 			hint: false,
 			openOnFocus: true,
-			appendTo: '.site-header .wp-block-search__inside-wrapper',
+			appendTo: '.modal--search .wp-block-search',
 			templates: {
 				empty: wp.template( 'autocomplete-empty' )
 			}
