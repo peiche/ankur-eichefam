@@ -253,9 +253,16 @@ Usage: codyhouse.co/license
 
     .wp-block-search__inside-wrapper {
         background: inherit;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .wp-block-search__input {
         color: inherit;
+        padding-left: 0;
+    }
+
+    .wp-block-search__button.has-icon {
+        padding-right: 0;
     }
 }
