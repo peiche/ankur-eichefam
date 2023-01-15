@@ -73,7 +73,6 @@ window.addEventListener('load', function () {
   document.querySelectorAll(algolia.autocomplete.input_selector).forEach(function (element) {
     var config = {
       debug: true,
-      // algolia.debug,
       hint: false,
       openOnFocus: true,
       appendTo: '.modal--search .wp-block-search',
