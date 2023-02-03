@@ -1,10 +1,10 @@
 // 1
-import "./theme/modal-window";
-import "./theme/popover";
-import "./theme/responsive-sidebar";
+import './components/modal-window';
+import './components/popover';
+import './components/responsive-sidebar';
 
 // 2
-import "./theme/adv-custom-select";
+import './components/adv-custom-select';
 
 // 3
-import "./theme/light-dark-switch";
+import './components/light-dark-switch';
