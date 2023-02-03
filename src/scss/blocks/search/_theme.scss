@@ -12,8 +12,8 @@
 
 		&:has(.aa-input[aria-expanded="true"]:valid) {
 
-			&:before {
-				content: '';
+			&::before {
+				content: "";
 				position: absolute;
 				background-color: inherit;
 				width: 100%;

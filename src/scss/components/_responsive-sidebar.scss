@@ -420,11 +420,11 @@ Usage: codyhouse.co/license
 	height: 1px;
 }
 
-.rz4-text-component > *:first-child {
+.rz4-text-component>*:first-child {
 	margin-top: 0;
 }
 
-.rz4-text-component > *:last-child {
+.rz4-text-component>*:last-child {
 	margin-bottom: 0;
 }
 
@@ -507,8 +507,7 @@ Usage: codyhouse.co/license
 .rz4-border-right {
 	--rz4-border-o: 1;
 	border-right:
-		var(--rz4-border-width, 1px) var(--rz4-border-style, solid)
-		hsla(var(--rz4-color-contrast-lower-hsl), var(--rz4-border-o, 1));
+		var(--rz4-border-width, 1px) var(--rz4-border-style, solid) hsla(var(--rz4-color-contrast-lower-hsl), var(--rz4-border-o, 1));
 }
 
 .rz4-max-width-4xs {
@@ -534,7 +533,7 @@ Usage: codyhouse.co/license
 	grid-template-columns: repeat(12, 1fr);
 }
 
-.rz4-grid > * {
+.rz4-grid>* {
 	min-width: 0;
 	grid-column-end: span 12;
 }
@@ -565,8 +564,7 @@ Usage: codyhouse.co/license
 .rz4-border-left {
 	--rz4-border-o: 1;
 	border-left:
-		var(--rz4-border-width, 1px) var(--rz4-border-style, solid)
-		hsla(var(--rz4-color-contrast-lower-hsl), var(--rz4-border-o, 1));
+		var(--rz4-border-width, 1px) var(--rz4-border-style, solid) hsla(var(--rz4-color-contrast-lower-hsl), var(--rz4-border-o, 1));
 }
 
 .rz4-bg-opacity-10\% {
@@ -613,6 +611,6 @@ Usage: codyhouse.co/license
 
 	.rz4-padding-x-0\@md {
 		padding-left: 0;
-    	padding-right: 0;
+		padding-right: 0;
 	}
 }
