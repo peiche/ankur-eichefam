@@ -3,6 +3,12 @@
         "plugin:@wordpress/eslint-plugin/recommended",
         "prettier"
     ],
+    "ignorePatterns": [
+        "src/js/components/**/*",
+        "src/js/autocomplete.js",
+        "src/js/instantsearch.js",
+        "src/js/util.js"
+    ],
     "plugins": [
         "prettier"
     ],

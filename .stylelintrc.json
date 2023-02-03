@@ -2,6 +2,9 @@
 	"extends": [
 		"@wordpress/stylelint-config/scss"
 	],
+	"ignoreFiles": [
+		"src/scss/components/**/*"
+	],
 	"rules": {
 		"block-no-empty": null,
 		"no-empty-source": null,
