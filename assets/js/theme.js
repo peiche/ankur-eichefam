@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 25:
+/***/ 108:
 /***/ (() => {
 
 // File#: _2_adv-custom-select
@@ -235,7 +235,7 @@
 
 /***/ }),
 
-/***/ 37:
+/***/ 358:
 /***/ (() => {
 
 // File#: _3_light-dark-switch
@@ -401,7 +401,7 @@
 
 /***/ }),
 
-/***/ 134:
+/***/ 336:
 /***/ (() => {
 
 // File#: _1_modal-window
@@ -650,7 +650,7 @@
 
 /***/ }),
 
-/***/ 570:
+/***/ 591:
 /***/ (() => {
 
 // File#: _1_popover
@@ -952,7 +952,7 @@
 
 /***/ }),
 
-/***/ 996:
+/***/ 558:
 /***/ (() => {
 
 // File#: _1_responsive-sidebar
@@ -1294,16 +1294,16 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _theme_modal_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(134);
-/* harmony import */ var _theme_modal_window__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_theme_modal_window__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _theme_popover__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(570);
-/* harmony import */ var _theme_popover__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_theme_popover__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _theme_responsive_sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(996);
-/* harmony import */ var _theme_responsive_sidebar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_theme_responsive_sidebar__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _theme_adv_custom_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(25);
-/* harmony import */ var _theme_adv_custom_select__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_theme_adv_custom_select__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _theme_light_dark_switch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(37);
-/* harmony import */ var _theme_light_dark_switch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_theme_light_dark_switch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_modal_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(336);
+/* harmony import */ var _components_modal_window__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_modal_window__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_popover__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(591);
+/* harmony import */ var _components_popover__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_popover__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_responsive_sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(558);
+/* harmony import */ var _components_responsive_sidebar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_responsive_sidebar__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_adv_custom_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(108);
+/* harmony import */ var _components_adv_custom_select__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_adv_custom_select__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_light_dark_switch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(358);
+/* harmony import */ var _components_light_dark_switch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_light_dark_switch__WEBPACK_IMPORTED_MODULE_4__);
 // 1
 
 

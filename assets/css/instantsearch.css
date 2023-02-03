@@ -24,7 +24,7 @@
     top: 0;
     bottom: 0;
     overflow: auto;
-    box-shadow: var(--wp--custom--shadow-lg);
+    box-shadow: var(--wp--preset--shadow--lg);
     width: 100%;
     max-width: 380px;
     transform: translateX(-100%);
@@ -93,7 +93,7 @@
   margin: 0;
 }
 .wp-site-blocks #algolia-search-box input {
-  border-color: var(--wp--preset--color--contrast-medium);
+  border-color: var(--wp--preset--color--accent);
   padding-left: var(--wp--preset--spacing--md);
   color: var(--wp--preset--color--contrast-high);
 }
