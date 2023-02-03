@@ -17,27 +17,27 @@
                 {
                     "name": "Primary",
                     "slug": "primary",
-                    "color": "hsl(265, 34%, 34%)"
+                    "color": "#2D3652"
                 },
                 {
                     "name": "Accent",
                     "slug": "accent",
-                    "color": "hsl(342, 89%, 48%)"
+                    "color": "#FFC700"
                 },
                 {
                     "name": "Warning",
                     "slug": "warning",
-                    "color": "hsl(46, 100%, 61%)"
+                    "color": "#D5E155"
                 },
                 {
                     "name": "Success",
                     "slug": "success",
-                    "color": "hsl(122, 50%, 60%)"
+                    "color": "#6ED47C"
                 },
                 {
                     "name": "Error",
                     "slug": "error",
-                    "color": "hsl(342, 89%, 48%)"
+                    "color": "#FF743C"
                 },
                 {
                     "name": "Background",
@@ -174,8 +174,8 @@
     },
     "customTemplates": [
         {
-            "name": "page-no-title-simple-header",
-            "title": "Page (no title, simple header)",
+            "name": "template-no-title",
+            "title": "Page, No Title",
             "postTypes": [
                 "page"
             ]
@@ -187,16 +187,6 @@
             "title": "Header",
             "area": "header"
         },
-        {
-            "name": "header-front-page",
-            "title": "Header (Front Page)",
-            "area": "header"
-        },
-        {
-            "name": "header-no-curve",
-            "title": "Header (no curve)",
-            "area": "header"
-        }
         {
             "name": "footer",
             "title": "Footer",
