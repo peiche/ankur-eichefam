@@ -2501,6 +2501,13 @@ Usage: codyhouse.co/license
   gap: var(--wp--preset--spacing--component-padding);
   flex-wrap: wrap;
 }
+@media (min-width: 80rem) {
+  .algolia-autocomplete .aa-dropdown-menu .aa-dataset-1 .aa-suggestions {
+    --overflow-size: 8rem;
+    width: calc(100% + var(--overflow-size) * 2);
+    margin-left: calc(var(--overflow-size) * -1);
+  }
+}
 .algolia-autocomplete .aa-dropdown-menu .aa-dataset-1 .aa-suggestion {
   width: 100%;
   padding: 0;
