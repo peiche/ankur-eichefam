@@ -65,6 +65,13 @@
 				display: flex !important; // override inline style
 				gap: var(--wp--preset--spacing--component-padding);
 				flex-wrap: wrap;
+
+
+				@media (min-width: 80rem) {
+					--overflow-size: 8rem;
+					width: calc(100% + var(--overflow-size) * 2);
+					margin-left: calc(var(--overflow-size) * -1);
+				}
 			}
 
 			.aa-suggestion {
