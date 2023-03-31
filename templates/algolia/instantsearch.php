@@ -6,7 +6,7 @@
  * @author  Paul Eiche <paul@boldoak.design>
  * @since   1.0.0
  *
- * @version 2.0.0
+ * @version 2.5.0
  * @package WebDevStudios\WPSWA
  */
 
@@ -78,15 +78,10 @@ wp_head();
 
 <div class="wp-site-blocks ais-page">
 	<?php echo $header; ?>
-	
-	<!-- <div class="padding-component rz4-hide@md">
-		<button class="rz4-btn rz4-btn--primary" aria-controls="sidebar">Show sidebar</button>
-	</div> -->
 
 	<div id="ais-wrapper" class="rz4-flex@md has-global-padding">
 		<aside class="sidebar sidebar--static@md js-sidebar" data-static-class="rz4-position-relative rz4-z-index-1 rz4-width-100% rz4-max-width-4xs" id="sidebar" aria-labelledby="sidebar-title">
 			<div class="sidebar__panel">
-				<!-- 👇 header visible only on mobile -->
 				<header class="sidebar__header rz4-bg rz4-padding-y-sm rz4-padding-x-md rz4-border-bottom rz4-z-index-2">
 					<h1 class="rz4-text-md rz4-text-truncate" id="sidebar-title">Filter</h1>
 			
@@ -96,10 +91,7 @@ wp_head();
 				</header>
 				
 				<div class="rz4-position-relative rz4-z-index-1 rz4-padding-x-md rz4-padding-x-0@md">
-					<!-- start sidebar content -->
 					<div class="rz4-text-component">
-						<!-- <p>Sidebar content.</p> -->
-
 						<div>
 							<h3 class="widgettitle has-md-font-size"><?php esc_html_e( 'Post Types', 'wp-search-with-algolia' ); ?></h3>
 							<section class="ais-facets" id="facet-post-types"></section>
@@ -117,16 +109,12 @@ wp_head();
 							<section class="ais-facets" id="facet-users"></section>
 						</div>
 					</div>
-					<!-- end sidebar content -->
 				</div>
 			</div>
 		</aside>
 		
 		<main id="ais-main" class="rz4-position-relative rz4-z-index-1 rz4-flex-grow sidebar-loaded:show">
-			<!-- start main content -->
 			<div class="rz4-text-component">
-				<!-- <p>Main content.</p> -->
-
 				<div class="algolia-search-box-wrapper">
 					<div id="algolia-search-box"></div>
 					<button type="button" class="rz4-hide@md ais-facets__filter" aria-controls="sidebar" aria-label="Toggle Filters">
@@ -150,7 +138,6 @@ wp_head();
 				<div id="algolia-hits"></div>
 				<div id="algolia-pagination"></div>
 			</div>
-			<!-- end main content -->
 		</main>
 	</div>
 	
