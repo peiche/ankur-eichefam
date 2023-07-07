@@ -1,47 +1,71 @@
 <!-- wp:template-part {"slug":"header","theme":"ankur-eichefam","tagName":"header","className":"site-header"} /-->
 
 <!-- wp:group {"tagName":"main","layout":{"inherit":false,"contentSize":"90rem","type":"constrained"}} -->
-<main class="wp-block-group"><!-- wp:query {"queryId":8,"query":{"perPage":"1","pages":"1","offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false,"taxQuery":{"post_tag":[393],"category":[]}},"displayLayout":{"type":"list","columns":2},"layout":{"type":"default"}} -->
-    <div class="wp-block-query"><!-- wp:post-template -->
-    <!-- wp:columns {"verticalAlignment":"center"} -->
-    <div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-    <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:post-featured-image {"isLink":true} /--></div>
-    <!-- /wp:column -->
-    
-    <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-    <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:buttons -->
-    <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"primary","textColor":"white","style":{"spacing":{"padding":{"top":"0.5rem","right":"0.5rem","bottom":"0.5rem","left":"0.5rem"}}},"fontSize":"sm"} -->
-    <div class="wp-block-button has-custom-font-size has-sm-font-size"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="https://eichefam.net/tag/featured" style="padding-top:0.5rem;padding-right:0.5rem;padding-bottom:0.5rem;padding-left:0.5rem">Featured</a></div>
-    <!-- /wp:button --></div>
-    <!-- /wp:buttons -->
-    
-    <!-- wp:post-title {"isLink":true,"fontSize":"xxl"} /-->
-    
-    <!-- wp:post-excerpt {"fontSize":"md"} /-->
-    
-    <!-- wp:post-date {"isLink":true} /--></div>
-    <!-- /wp:column --></div>
-    <!-- /wp:columns -->
-    <!-- /wp:post-template --></div>
+<main class="wp-block-group">
+    <!-- wp:query {"queryId":8,"query":{"perPage":"1","pages":"1","offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false,"taxQuery":{"post_tag":[393],"category":[]}},"layout":{"type":"default"}} -->
+    <div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"default","columnCount":2}} -->
+        <!-- wp:columns {"verticalAlignment":"center"} -->
+        <div class="wp-block-columns are-vertically-aligned-center">
+            <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
+            <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
+                <!-- wp:post-featured-image {"isLink":true} /--></div>
+            <!-- /wp:column -->
+
+            <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
+            <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:buttons -->
+                <div class="wp-block-buttons">
+                    <!-- wp:button {"backgroundColor":"primary","textColor":"white","style":{"spacing":{"padding":{"top":"0.5rem","right":"0.5rem","bottom":"0.5rem","left":"0.5rem"}}},"fontSize":"sm"} -->
+                    <div class="wp-block-button has-custom-font-size has-sm-font-size"><a
+                            class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button"
+                            href="https://eichefam.net/tag/featured"
+                            style="padding-top:0.5rem;padding-right:0.5rem;padding-bottom:0.5rem;padding-left:0.5rem">Featured</a>
+                    </div>
+                    <!-- /wp:button -->
+                </div>
+                <!-- /wp:buttons -->
+
+                <!-- wp:post-title {"isLink":true,"fontSize":"xxl"} /-->
+
+                <!-- wp:post-excerpt {"fontSize":"md"} /-->
+
+                <!-- wp:post-date {"isLink":true} /-->
+            </div>
+            <!-- /wp:column -->
+        </div>
+        <!-- /wp:columns -->
+        <!-- /wp:post-template -->
+    </div>
     <!-- /wp:query -->
-    
-    <!-- wp:query {"queryId":0,"query":{"perPage":"9","pages":0,"offset":"0","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]},"displayLayout":{"type":"flex","columns":3},"layout":{"type":"default"}} -->
-    <div class="wp-block-query"><!-- wp:post-template -->
-    <!-- wp:post-featured-image {"isLink":true,"height":"14rem"} /-->
-    
-    <!-- wp:post-title {"isLink":true,"fontSize":"lg"} /-->
-    
-    <!-- wp:post-excerpt {"moreText":""} /-->
-    
-    <!-- wp:post-date {"isLink":true,"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-high"}}}}} /-->
-    <!-- /wp:post-template -->
-    
-    <!-- wp:query-pagination {"paginationArrow":"arrow","className":"is-style-buttons","layout":{"type":"flex","justifyContent":"center"}} -->
-    <!-- wp:query-pagination-previous {"fontSize":"sm"} /-->
-    
-    <!-- wp:query-pagination-next {"fontSize":"sm"} /-->
-    <!-- /wp:query-pagination --></div>
-    <!-- /wp:query --></main>
-    <!-- /wp:group -->
-    
-    <!-- wp:template-part {"slug":"footer","theme":"ankur-eichefam","tagName":"footer","className":"site-footer"} /-->
+
+    <!-- wp:query {"queryId":0,"query":{"perPage":"9","pages":0,"offset":"0","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]},"layout":{"type":"default"}} -->
+    <div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+        <!-- wp:group {"style":{"dimensions":{"minHeight":"14rem"},"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"blockGap":"0"},"border":{"radius":"0.25rem"}},"className":"wp-block-post-featured-image-wrapper","layout":{"type":"constrained"}} -->
+        <div class="wp-block-group wp-block-post-featured-image-wrapper"
+            style="border-radius:0.25rem;min-height:14rem;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+            <!-- wp:image {"id":64738,"sizeSlug":"large","linkDestination":"none","className":"wp-block-post-featured-image-placeholder"} -->
+            <figure class="wp-block-image size-large wp-block-post-featured-image-placeholder"><img
+                    src="https://eichefam.net/assets/rhone-bg-v1.svg" alt="" class="wp-image-64738" /></figure>
+            <!-- /wp:image -->
+
+            <!-- wp:post-featured-image {"isLink":true,"height":"14rem"} /-->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- wp:post-title {"isLink":true,"fontSize":"lg"} /-->
+
+        <!-- wp:post-excerpt {"moreText":""} /-->
+
+        <!-- wp:post-date {"isLink":true,"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-high"}}}}} /-->
+        <!-- /wp:post-template -->
+
+        <!-- wp:query-pagination {"paginationArrow":"arrow","className":"is-style-buttons","layout":{"type":"flex","justifyContent":"center"}} -->
+        <!-- wp:query-pagination-previous {"fontSize":"sm"} /-->
+
+        <!-- wp:query-pagination-next {"fontSize":"sm"} /-->
+        <!-- /wp:query-pagination -->
+    </div>
+    <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"ankur-eichefam","tagName":"footer","className":"site-footer"} /-->
