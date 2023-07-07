@@ -45,11 +45,12 @@ window.addEventListener('load', function () {
     /* Stats widget */
     instantsearch.widgets.stats({
       container: '#algolia-stats'
+    }), instantsearch.widgets.configure({
+      hitsPerPage: 10
     }),
     /* Hits widget */
     instantsearch.widgets.hits({
       container: '#algolia-hits',
-      hitsPerPage: 10,
       templates: {
         empty: 'No results were found for "<strong>{{query}}</strong>".',
         item: wp.template('instantsearch-hit')

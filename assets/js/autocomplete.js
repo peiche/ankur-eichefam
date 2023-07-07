@@ -88,8 +88,10 @@ window.addEventListener('load', function () {
 
 
     var autocomplete = algoliaAutocomplete(element, config, sources).on('autocomplete:selected', function (e, suggestion) {
+      var _suggestion$permalink;
+
       /* Redirect the user when we detect a suggestion selection. */
-      window.location.href = suggestion.permalink;
+      window.location.href = (_suggestion$permalink = suggestion.permalink) !== null && _suggestion$permalink !== void 0 ? _suggestion$permalink : suggestion.posts_url;
     });
     /* Force the dropdown to be re-drawn on scroll to handle fixed containers. */
 
