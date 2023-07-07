@@ -30,7 +30,7 @@
                 </select>
                 <button class="ld-switch-btn adv-select-hide js-adv-select__control" aria-controls="color-theme-popover"
                     aria-haspopup="listbox">
-                    <span class="lc0-sr-only js-adv-select__value"></span></p>
+                    <span class="lc0-sr-only js-adv-select__value"></span>
                     <div class="ld-switch-btn__icon-wrapper ld-switch-btn__icon-wrapper--in js-ld-switch-icon"
                         aria-hidden="false">
                         <svg class="lc0-icon ld-switch-btn__icon" viewBox="0 0 20 20">
@@ -115,7 +115,6 @@
                             </g>
                         </svg>
                     </div>
-                    <p>
                 </button>
             </div>
             <div id="color-theme-popover"
@@ -143,9 +142,10 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"backgroundColor":"bg","textColor":"contrast-higher","className":"modal modal\u002d\u002dsearch modal\u002d\u002danimate-fade js-modal","layout":{"type":"default"},"anchor":"modal-search"} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"backgroundColor":"bg","textColor":"contrast-higher","className":"modal modal\u002d\u002dsearch modal\u002d\u002danimate-fade js-modal","layout":{"type":"default"}} -->
 <div id="modal-search"
-    class="wp-block-group modal modal--search modal--animate-fade js-modal has-contrast-higher-color has-bg-background-color has-text-color has-background">
+    class="wp-block-group modal modal--search modal--animate-fade js-modal has-contrast-higher-color has-bg-background-color has-text-color has-background"
+    style="padding-left:0;padding-right:0">
     <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl"}}},"layout":{"type":"constrained"}} -->
     <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--xxl)">
         <!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"style":{"border":{"radius":"0px","top":{"width":"0px","style":"none"},"right":{"width":"0px","style":"none"},"bottom":{"color":"var:preset|color|accent","width":"2px"},"left":{"width":"0px","style":"none"}}},"textColor":"contrast-higher","className":"has-text-color has-higher-contrast-higher-color"} /-->
