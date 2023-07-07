@@ -3,27 +3,13 @@
 .contact-form {
 
 	.wp-block-jetpack-contact-form {
-		gap: var(--wp--preset--spacing--component-padding);
 
 		.grunion-field-wrap {
-			border: 0;
 
 			label {
 				margin-bottom: var(--wp--preset--spacing--xxs);
 				font-size: var(--wp--preset--font-size--sm);
 				font-weight: 400;
-			}
-		}
-
-		$widths: 25, 50, 75;
-
-		@each $width in $widths {
-
-			.grunion-field-width-#{$width}-wrap {
-
-				@media (min-width: 600px) {
-					flex-basis: calc(#{$width}% - (var(--wp--preset--spacing--component-padding) / 2));
-				}
 			}
 		}
 
@@ -41,13 +27,5 @@
 			border-radius: var(--wp--custom--radius-md);
 			box-shadow: inset 0 0 0 1px var(--wp--preset--color--contrast-lower);
 		}
-	}
-}
-
-@media (max-width: 600px) {
-
-	.wp-block-jetpack-contact-form .grunion-field-wrap[class*="grunion-field-width-"] {
-		flex: 0 0 100%;
-		max-width: 100%;
 	}
 }
