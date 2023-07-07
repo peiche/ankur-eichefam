@@ -1,25 +1,25 @@
-window.addEventListener('load', function() {
-	if ( document.getElementById("algolia-search-box") ) {
-		if ( algolia.indices.searchable_posts === undefined && document.getElementsByClassName("admin-bar").length > 0) {
+window.addEventListener('load', function () {
+	if (document.getElementById("algolia-search-box")) {
+		if (algolia.indices.searchable_posts === undefined && document.getElementsByClassName("admin-bar").length > 0) {
 			alert('It looks like you haven\'t indexed the searchable posts index. Please head to the Indexing page of the Algolia Search plugin and index it.');
 		}
 
 		/* Instantiate instantsearch.js */
 		var search = instantsearch({
 			indexName: algolia.indices.searchable_posts.name,
-			searchClient: algoliasearch( algolia.application_id, algolia.search_api_key ),
+			searchClient: algoliasearch(algolia.application_id, algolia.search_api_key),
 			routing: {
 				router: instantsearch.routers.history({ writeDelay: 1000 }),
 				stateMapping: {
-					stateToRoute( indexUiState ) {
+					stateToRoute(indexUiState) {
 						return {
-							s: indexUiState[ algolia.indices.searchable_posts.name ].query,
-							page: indexUiState[ algolia.indices.searchable_posts.name ].page
+							s: indexUiState[algolia.indices.searchable_posts.name].query,
+							page: indexUiState[algolia.indices.searchable_posts.name].page
 						}
 					},
-					routeToState( routeState ) {
+					routeToState(routeState) {
 						const indexUiState = {};
-						indexUiState[ algolia.indices.searchable_posts.name ] = {
+						indexUiState[algolia.indices.searchable_posts.name] = {
 							query: routeState.s,
 							page: routeState.page
 						};
@@ -45,10 +45,13 @@ window.addEventListener('load', function() {
 				container: '#algolia-stats'
 			}),
 
+			instantsearch.widgets.configure({
+				hitsPerPage: 10,
+			}),
+
 			/* Hits widget */
 			instantsearch.widgets.hits({
 				container: '#algolia-hits',
-				hitsPerPage: 10,
 				templates: {
 					empty: 'No results were found for "<strong>{{query}}</strong>".',
 					item: wp.template('instantsearch-hit')
@@ -56,7 +59,7 @@ window.addEventListener('load', function() {
 				transformData: {
 					item: function (hit) {
 
-						function replace_highlights_recursive (item) {
+						function replace_highlights_recursive(item) {
 							if (item instanceof Object && item.hasOwnProperty('value')) {
 								item.value = _.escape(item.value);
 								item.value = item.value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
@@ -119,6 +122,6 @@ window.addEventListener('load', function() {
 		search.start();
 
 		// This needs work
-		document.querySelector("#algolia-search-box input[type='search']").select()
+		document.querySelector("#algolia-search-box input[type='search']").select();
 	}
 });
