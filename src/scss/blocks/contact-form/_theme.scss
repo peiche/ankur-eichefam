@@ -1,31 +1,31 @@
 @use "./base" as *;
 
 .contact-form {
+  .wp-block-jetpack-contact-form {
+    .grunion-field-wrap {
+      label {
+        margin-bottom: var(--wp--preset--spacing--xxs);
+        font-size: var(--wp--preset--font-size--sm);
+        font-weight: 400;
+      }
+    }
 
-	.wp-block-jetpack-contact-form {
-
-		.grunion-field-wrap {
-
-			label {
-				margin-bottom: var(--wp--preset--spacing--xxs);
-				font-size: var(--wp--preset--font-size--sm);
-				font-weight: 400;
-			}
-		}
-
-		input[type="email"],
-		input[type="tel"],
-		input[type="text"],
-		input[type="url"],
-		textarea {
-			margin-bottom: 0;
-			border: 0;
-			background-color: var(--wp--preset--color--bg);
-			color: inherit;
-			line-height: calc(var(--wp--custom--line-height-body) * var(--wp--custom--line-height-multiplier, 1));
-			padding: var(--wp--preset--spacing--xxs) var(--wp--preset--spacing--xs);
-			border-radius: var(--wp--custom--radius-md);
-			box-shadow: inset 0 0 0 1px var(--wp--preset--color--contrast-lower);
-		}
-	}
+    input[type="email"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="url"],
+    textarea {
+      margin-bottom: 0;
+      border: 0;
+      background-color: var(--wp--preset--color--bg);
+      color: inherit;
+      line-height: calc(
+        var(--wp--custom--line-height-body) *
+          var(--wp--custom--line-height-multiplier, 1)
+      );
+      padding: var(--wp--preset--spacing--xxs) var(--wp--preset--spacing--xs);
+      border-radius: var(--wp--custom--radius-md);
+      box-shadow: inset 0 0 0 1px var(--wp--preset--color--contrast-lower);
+    }
+  }
 }

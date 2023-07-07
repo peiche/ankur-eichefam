@@ -1,33 +1,33 @@
 @use "./base" as *;
 
 .wp-block-post-featured-image {
-	background-color: var(--wp--preset--color--bg);
+  background-color: var(--wp--preset--color--bg);
 
-	img {
-		box-sizing: border-box;
-		height: auto;
-		max-width: 100%;
-		vertical-align: bottom;
-		width: 100%;
-		border-radius: var(--wp--custom--radius-md);
-	}
+  img {
+    box-sizing: border-box;
+    height: auto;
+    max-width: 100%;
+    vertical-align: bottom;
+    width: 100%;
+    border-radius: var(--wp--custom--radius-md);
+  }
 
-	&-wrapper {
-		position: relative;
-		overflow: hidden;
-	}
+  &-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
 
-	&-placeholder {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
+  &-placeholder {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-		image {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
-		}
-	}
+    image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

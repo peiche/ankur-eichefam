@@ -1,28 +1,25 @@
 @use "./base" as *;
 
 .wp-block-search {
+  &__inside-wrapper,
+  &__input,
+  &__button {
+    position: relative;
+  }
 
-	&__inside-wrapper,
-	&__input,
-	&__button {
-		position: relative;
-	}
-
-	&__inside-wrapper {
-
-		&:has(.aa-input[aria-expanded="true"]:valid) {
-
-			&::before {
-				content: "";
-				position: absolute;
-				background-color: inherit;
-				width: 100%;
-				height: 50%;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				pointer-events: none;
-			}
-		}
-	}
+  &__inside-wrapper {
+    &:has(.aa-input[aria-expanded="true"]:valid) {
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: inherit;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+      }
+    }
+  }
 }
