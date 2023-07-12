@@ -1,6 +1,6 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
   /* Initialize Algolia client */
   var client = algoliasearch(algolia.application_id, algolia.search_api_key);
   /**
@@ -26,13 +26,13 @@ window.addEventListener('load', function () {
 
   var sources = [];
   algolia.autocomplete.sources.forEach(function (config, i) {
-    var suggestion_template = wp.template(config['tmpl_suggestion']);
+    var suggestion_template = wp.template(config["tmpl_suggestion"]);
     sources.push({
-      source: algoliaHitsSource(client.initIndex(config['index_name']), {
-        hitsPerPage: config['max_suggestions'],
-        attributesToSnippet: ['content:10'],
-        highlightPreTag: '__ais-highlight__',
-        highlightPostTag: '__/ais-highlight__'
+      source: algoliaHitsSource(client.initIndex(config["index_name"]), {
+        hitsPerPage: config["max_suggestions"],
+        attributesToSnippet: ["content:10"],
+        highlightPreTag: "__ais-highlight__",
+        highlightPostTag: "__/ais-highlight__"
       }),
       templates: {
         header: false,
@@ -45,22 +45,22 @@ window.addEventListener('load', function () {
 
           for (var key in hit._highlightResult) {
             /* We do not deal with arrays. */
-            if (typeof hit._highlightResult[key].value !== 'string') {
+            if (typeof hit._highlightResult[key].value !== "string") {
               continue;
             }
 
             hit._highlightResult[key].value = _.escape(hit._highlightResult[key].value);
-            hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+            hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, "<em>").replace(/__\/ais-highlight__/g, "</em>");
           }
 
           for (var key in hit._snippetResult) {
             /* We do not deal with arrays. */
-            if (typeof hit._snippetResult[key].value !== 'string') {
+            if (typeof hit._snippetResult[key].value !== "string") {
               continue;
             }
 
             hit._snippetResult[key].value = _.escape(hit._snippetResult[key].value);
-            hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+            hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, "<em>").replace(/__\/ais-highlight__/g, "</em>");
           }
 
           return suggestion_template(hit);
@@ -75,19 +75,19 @@ window.addEventListener('load', function () {
       debug: true,
       hint: false,
       openOnFocus: true,
-      appendTo: '.modal--search .wp-block-search',
+      appendTo: ".modal--search .wp-block-search",
       templates: {
-        empty: wp.template('autocomplete-empty')
+        empty: wp.template("autocomplete-empty")
       }
     };
 
     if (algolia.powered_by_enabled) {
-      config.templates.footer = wp.template('autocomplete-footer');
+      config.templates.footer = wp.template("autocomplete-footer");
     }
     /* Instantiate autocomplete.js */
 
 
-    var autocomplete = algoliaAutocomplete(element, config, sources).on('autocomplete:selected', function (e, suggestion) {
+    var autocomplete = algoliaAutocomplete(element, config, sources).on("autocomplete:selected", function (e, suggestion) {
       var _suggestion$permalink;
 
       /* Redirect the user when we detect a suggestion selection. */
@@ -95,17 +95,17 @@ window.addEventListener('load', function () {
     });
     /* Force the dropdown to be re-drawn on scroll to handle fixed containers. */
 
-    window.addEventListener('scroll', function () {
+    window.addEventListener("scroll", function () {
       if (autocomplete.autocomplete.getWrapper().style.display === "block") {
         autocomplete.autocomplete.close();
         autocomplete.autocomplete.open();
       }
     });
   });
-  var algoliaPoweredLink = document.querySelector('.algolia-powered-by-link');
+  var algoliaPoweredLink = document.querySelector(".algolia-powered-by-link");
 
   if (algoliaPoweredLink) {
-    algoliaPoweredLink.addEventListener('click', function (e) {
+    algoliaPoweredLink.addEventListener("click", function (e) {
       e.preventDefault();
       window.location = "https://www.algolia.com/?utm_source=WordPress&utm_medium=extension&utm_content=" + window.location.hostname + "&utm_campaign=poweredby";
     });
