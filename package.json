@@ -12,8 +12,8 @@
     "build:js": "wp-scripts build ./src/js/instantsearch.js --output-path=./assets/js",
     "export": "copyfiles assets/**/* parts/**/* patterns/**/* src/**/* templates/**/* *.php readme.txt style.css theme.json ankur-eichefam",
     "zip": "bestzip ankur-eichefam.zip ankur-eichefam",
-    "prettier:check": "prettier --check \"{inc,parts,patterns,src,styles,templates}/**/*.+(html|scss)\"",
-    "prettier:write": "prettier --write \"{inc,parts,patterns,src,styles,templates}/**/*.+(html|scss)\""
+    "prettier:check": "prettier --check \"{inc,parts,patterns,src,styles,templates}/**/*.+(html|scss|js)\"",
+    "prettier:write": "prettier --write \"{inc,parts,patterns,src,styles,templates}/**/*.+(html|scss|js)\""
   },
   "repository": {
     "type": "git",
