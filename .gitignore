@@ -1,3 +1,5 @@
-ankur-eichefam
+assets
+build
 node_modules
-*.zip
+vendor
+*.pot

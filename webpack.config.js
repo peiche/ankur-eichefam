@@ -73,7 +73,10 @@ module.exports = [
 				},
 			],
 		},
-		plugins: [new MiniCSSExtractPlugin(), new FixStyleOnlyEntriesPlugin()],
+		plugins: [
+			new MiniCSSExtractPlugin(),
+			new FixStyleOnlyEntriesPlugin(),
+		],
 	},
 	{
 		...defaultConfig,

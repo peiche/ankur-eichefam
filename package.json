@@ -4,16 +4,16 @@
   "description": "",
   "scripts": {
     "lint:css": "wp-scripts lint-style \"src/**/*.scss\"",
-    "lint:js": "wp-scripts lint-js \"src/**/*.js\"",
-    "lint:js:fix": "wp-scripts lint-js --fix \"src/**/*.js\"",
-    "lint": "npm run lint:css && npm run lint:js",
-    "clean": "rimraf \"./assets\" \"./ankur-eichefam\"",
-    "build": "npm run prettier:check && npm run clean && wp-scripts build",
-    "build:js": "wp-scripts build ./src/js/instantsearch.js --output-path=./assets/js",
-    "export": "copyfiles assets/**/* parts/**/* patterns/**/* src/**/* templates/**/* *.php readme.txt style.css theme.json ankur-eichefam",
-    "zip": "bestzip ankur-eichefam.zip ankur-eichefam",
-    "prettier:check": "prettier --check \"{inc,parts,patterns,src,styles,templates}/**/*.+(html|scss|js)\"",
-    "prettier:write": "prettier --write \"{inc,parts,patterns,src,styles,templates}/**/*.+(html|scss|js)\""
+    "prettier:check": "prettier --check \"{inc,parts,patterns,src,styles,templates}/**/*.+(html|scss)\"",
+    "prettier:write": "prettier --write \"{inc,parts,patterns,src,styles,templates}/**/*.+(html|scss)\"",
+    "lint": "npm run lint:css && npm run prettier:check",
+    "fix": "npm run prettier:write && npm run phpcb",
+    "clean": "rimraf \"./assets\" \"./build\" \"ankur-eichefam.pot\"",
+    "build": "npm run lint && npm run clean && wp-scripts build",
+    "mkdir:build": "mkdirp build",
+    "copy": "copyfiles assets/**/* inc/**/* parts/**/* patterns/**/* src/**/* styles/**/* templates/**/* *.php readme.txt screenshot.jpg style.css theme.json ankur-eichefam.pot build/ankur-eichefam",
+    "zip": "cd build && bestzip ankur-eichefam.zip ankur-eichefam",
+    "export": "npm run mkdir:build && npm run copy && npm run zip"
   },
   "repository": {
     "type": "git",
