@@ -6,7 +6,7 @@
  * @author  Paul Eiche <paul@boldoak.design>
  * @since   1.0.0
  *
- * @version 2.5.2
+ * @version 2.7.1
  * @package WebDevStudios\WPSWA
  */
 
