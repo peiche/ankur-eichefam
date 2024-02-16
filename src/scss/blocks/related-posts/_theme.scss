@@ -12,17 +12,11 @@
   }
 
   .jp-related-posts-i2__post {
-    margin: 0 !important;
-    max-width: unset !important;
-
     &-link {
+      gap: 0;
       color: var(--wp--preset--color--contrast-higher);
       font-family: var(--wp--preset--font-family--heading);
       font-size: var(--wp--preset--font-size--lg);
-      margin-top: calc(
-        var(--wp--preset--spacing--unit) * 0.9375 *
-          var(--wp--custom--text-space-y-multiplier)
-      );
       margin-bottom: calc(
         var(--wp--preset--spacing--unit) * 0.3125 *
           var(--wp--custom--text-space-y-multiplier)
@@ -32,21 +26,50 @@
       &:hover {
         text-decoration: underline;
       }
+
+      &:not(:has(.jp-related-posts-i2__post-img)) {
+        position: relative;
+        padding-top: calc(
+          14rem +
+            (
+              var(--wp--preset--spacing--unit) * 0.9375 *
+                var(--wp--custom--text-space-y-multiplier)
+            )
+        );
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 14rem;
+          top: 0;
+          left: 0;
+          border-radius: var(--wp--custom--radius-md);
+          background-image: url(/assets/rhone-bg-v1.svg);
+          background-size: 100%;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 0.9;
+          }
+        }
+      }
     }
 
-    &-img-link {
-      margin: 0;
+    &-img {
+      border-radius: var(--wp--custom--radius-md);
+      display: block;
+      width: 100%;
+      height: 14rem;
+      object-fit: cover;
+      margin-bottom: calc(
+        var(--wp--preset--spacing--unit) * 0.9375 *
+          var(--wp--custom--text-space-y-multiplier)
+      );
 
       &:hover {
         opacity: 0.9;
-      }
-
-      img {
-        border-radius: var(--wp--custom--radius-md);
-        display: block;
-        width: 100%;
-        height: 14rem;
-        object-fit: cover;
       }
     }
 
