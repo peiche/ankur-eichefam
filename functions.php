@@ -64,3 +64,12 @@ add_filter( 'algolia_post_images_sizes', function( $sizes ) {
 
 	return $sizes;
 } );
+
+add_action( 'enqueue_block_editor_assets', function() {
+	wp_enqueue_script(
+		'ankur-eichefam-custom-icons',
+		get_theme_file_uri( '/assets/js/register-custom-icons.js' ),
+		array( 'wp-i18n', 'wp-hooks', 'wp-dom' ),
+		true
+	);
+} );

@@ -114,6 +114,12 @@ module.exports = [
 				'js',
 				'autocomplete.js',
 			),
+			'register-custom-icons': path.resolve(
+				process.cwd(),
+				'src',
+				'js',
+				'register-custom-icons.js',
+			),
 		},
 		output: {
 			filename: '[name].js',

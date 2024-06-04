@@ -5,7 +5,7 @@
     max-width: 90rem;
     margin-left: auto;
     margin-right: auto;
-    gap: var(--wp--preset--spacing--component-padding);
+    gap: var(--wp--preset--spacing--40);
   }
 
   #ais-main,
@@ -31,8 +31,8 @@
       transition: transform 0.3s;
 
       > div {
-        padding-left: var(--wp--preset--spacing--sm);
-        padding-right: var(--wp--preset--spacing--sm);
+        padding-left: var(--wp--preset--spacing--50);
+        padding-right: var(--wp--preset--spacing--50);
       }
     }
   }
@@ -75,8 +75,8 @@
   .ais-facets__header {
     display: none;
     border-bottom: 1px solid var(--wp--preset--color--contrast-lower);
-    padding-top: var(--wp--preset--spacing--sm);
-    padding-bottom: var(--wp--preset--spacing--sm);
+    padding-top: var(--wp--preset--spacing--50);
+    padding-bottom: var(--wp--preset--spacing--50);
 
     @media (max-width: 1000px) {
       display: flex;
@@ -88,8 +88,8 @@
     border: 0;
     background: var(--wp--preset--color--contrast-lower);
     border-radius: 50%;
-    width: var(--wp--preset--spacing--md);
-    height: var(--wp--preset--spacing--md);
+    width: var(--wp--preset--spacing--60);
+    height: var(--wp--preset--spacing--60);
     font-size: var(--wp--preset--font-size--lg);
     cursor: pointer;
   }
@@ -101,7 +101,7 @@
 
   #algolia-search-box input {
     border-color: var(--wp--preset--color--accent);
-    padding-left: var(--wp--preset--spacing--md);
+    padding-left: var(--wp--preset--spacing--60);
     color: var(--wp--preset--color--contrast-high);
 
     &::-webkit-search-cancel-button {
@@ -140,7 +140,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: var(--wp--preset--spacing--component-padding);
+    gap: var(--wp--preset--spacing--40);
   }
 
   .ais-Hits-item {
@@ -160,12 +160,12 @@
     }
 
     @media (min-width: 600px) {
-      width: calc(50% - (var(--wp--preset--spacing--component-padding) / 2));
+      width: calc(50% - (var(--wp--preset--spacing--40) / 2));
     }
   }
 
   .widgettitle {
-    margin-bottom: var(--wp--preset--spacing--xxxs);
+    margin-bottom: var(--wp--preset--spacing--20);
   }
 
   .ais-facets ul {
@@ -178,7 +178,7 @@
     padding-left: 1.5rem;
     position: relative;
     display: block;
-    margin-bottom: var(--wp--preset--spacing--xxxs);
+    margin-bottom: var(--wp--preset--spacing--20);
   }
 
   .ais-Menu-link,
@@ -271,18 +271,18 @@
   .ais-RefinementList-count {
     margin: 0;
     background-color: var(--wp--preset--color--contrast-lower);
-    padding: var(--wp--preset--spacing--xxxxs) var(--wp--preset--spacing--xxxs);
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
     font-size: var(--wp--preset--font-size--xs);
     border-radius: 20rem;
     vertical-align: middle;
   }
 
   .ais-Pagination-list {
-    margin: var(--wp--preset--spacing--md) 0 0;
+    margin: var(--wp--preset--spacing--60) 0 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--wp--preset--spacing--component-padding);
+    gap: var(--wp--preset--spacing--40);
     justify-content: center;
   }
 
@@ -295,7 +295,7 @@
     color: var(--wp--preset--color--contrast-high);
     text-decoration: none;
     border-radius: var(--wp--custom--radius-lg);
-    padding: var(--wp--preset--spacing--xxxs) var(--wp--preset--spacing--xs);
+    padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
 
     &:hover {
       opacity: 0.9;

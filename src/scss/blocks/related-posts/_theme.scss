@@ -18,7 +18,7 @@
       font-family: var(--wp--preset--font-family--heading);
       font-size: var(--wp--preset--font-size--lg);
       margin-bottom: calc(
-        var(--wp--preset--spacing--unit) * 0.3125 *
+        var(--wp--preset--spacing--40) * 0.3125 *
           var(--wp--custom--text-space-y-multiplier)
       );
       text-decoration: none;
@@ -32,7 +32,7 @@
         padding-top: calc(
           14rem +
             (
-              var(--wp--preset--spacing--unit) * 0.9375 *
+              var(--wp--preset--spacing--40) * 0.9375 *
                 var(--wp--custom--text-space-y-multiplier)
             )
         );
@@ -64,7 +64,7 @@
       height: 14rem;
       object-fit: cover;
       margin-bottom: calc(
-        var(--wp--preset--spacing--unit) * 0.9375 *
+        var(--wp--preset--spacing--40) * 0.9375 *
           var(--wp--custom--text-space-y-multiplier)
       );
 
