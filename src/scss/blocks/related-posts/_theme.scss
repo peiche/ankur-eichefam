@@ -12,16 +12,15 @@
   }
 
   .jp-related-posts-i2__post {
+    gap: var(--wp--preset--spacing--40);
+
     &-link {
-      gap: 0;
+      gap: var(--wp--preset--spacing--40);
       color: var(--wp--preset--color--contrast-higher);
       font-family: var(--wp--preset--font-family--heading);
       font-size: var(--wp--preset--font-size--lg);
-      margin-bottom: calc(
-        var(--wp--preset--spacing--40) * 0.3125 *
-          var(--wp--custom--text-space-y-multiplier)
-      );
       text-decoration: none;
+      margin: 0;
 
       &:hover {
         text-decoration: underline;
@@ -29,13 +28,7 @@
 
       &:not(:has(.jp-related-posts-i2__post-img)) {
         position: relative;
-        padding-top: calc(
-          14rem +
-            (
-              var(--wp--preset--spacing--40) * 0.9375 *
-                var(--wp--custom--text-space-y-multiplier)
-            )
-        );
+        padding-top: calc(14rem + var(--wp--preset--spacing--40));
 
         &::before {
           content: "";
@@ -63,10 +56,6 @@
       width: 100%;
       height: 14rem;
       object-fit: cover;
-      margin-bottom: calc(
-        var(--wp--preset--spacing--40) * 0.9375 *
-          var(--wp--custom--text-space-y-multiplier)
-      );
 
       &:hover {
         opacity: 0.9;
